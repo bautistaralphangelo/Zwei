@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G1421" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Cast" representedClassName=".Cast" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="movieCast" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="casts" inverseEntity="Movie" syncable="YES"/>
+        <relationship name="seriesCast" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Series" inverseName="casts" inverseEntity="Series" syncable="YES"/>
+    </entity>
+    <entity name="Director" representedClassName=".Director" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="movieDirected" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="directors" inverseEntity="Movie" syncable="YES"/>
+        <relationship name="seriesDirected" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Series" inverseName="directors" inverseEntity="Series" syncable="YES"/>
+    </entity>
+    <entity name="Genre" representedClassName=".Genre" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="movieGenre" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="genres" inverseEntity="Movie" syncable="YES"/>
+        <relationship name="seriesGenre" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Series" inverseName="genres" inverseEntity="Series" syncable="YES"/>
+    </entity>
+    <entity name="Movie" representedClassName=".Movie" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="releaseDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="synopsis" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="trailerDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="casts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Cast" inverseName="movieCast" inverseEntity="Cast" syncable="YES"/>
+        <relationship name="directors" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Director" inverseName="movieDirected" inverseEntity="Director" syncable="YES"/>
+        <relationship name="genres" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Genre" inverseName="movieGenre" inverseEntity="Genre" syncable="YES"/>
+        <relationship name="related" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="related" inverseEntity="Movie" syncable="YES"/>
+    </entity>
+    <entity name="Series" representedClassName=".Series" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="runDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="season" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="synopsis" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="casts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Cast" inverseName="seriesCast" inverseEntity="Cast" syncable="YES"/>
+        <relationship name="directors" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Director" inverseName="seriesDirected" inverseEntity="Director" syncable="YES"/>
+        <relationship name="genres" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Genre" inverseName="seriesGenre" inverseEntity="Genre" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Cast" positionX="-5321" positionY="-2430" width="128" height="90"/>
+        <element name="Director" positionX="-5321" positionY="-2286" width="128" height="90"/>
+        <element name="Genre" positionX="-5321" positionY="-2151" width="128" height="90"/>
+        <element name="Movie" positionX="-5517" positionY="-2403" width="128" height="225"/>
+        <element name="Series" positionX="-5141" positionY="-2385" width="128" height="210"/>
+    </elements>
+</model>
